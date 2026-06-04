@@ -1,0 +1,7 @@
+# Ignore all raw astronomical data files
+*.fits
+*.csv
+
+# Ignore Python cache folders
+__pycache__/
+.ipynb_checkpoints/
