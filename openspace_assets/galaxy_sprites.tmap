@@ -1,8 +1,7 @@
 # Maps the 'object_type' column to image files
 # Format: [CSV_Value]    [Image_Filename]
 
-spiral      spiral.png
-elliptical  elliptical.png
-irregular   irregular.png
-quasar      quasar.png
-*           generic.png
+1      spiral.png
+2  elliptical.png
+3      quasar.png
+*     generic.png
