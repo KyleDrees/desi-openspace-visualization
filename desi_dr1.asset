@@ -1,0 +1,43 @@
+local assetHelper = asset.require("util/asset_helper")
+
+-- 1. Point OpenSpace to your final exported CSV and your Texture Map
+local csvFile = asset.localResource("desi_catalog_final.csv") -- Make sure this matches your final Python export name!
+local tmapFile = asset.localResource("galaxy_sprites.tmap")
+
+-- 2. Define the visual parameters for the OpenSpace Scene Graph
+local desiNode = {
+    Identifier = "DESI_Data_Release_1",
+    Parent = "Root",
+    Transform = {
+        Translation = {
+            Type = "StaticTranslation",
+            Position = {0, 0, 0}
+        }
+    },
+    Renderable = {
+        Type = "RenderablePointCloud",
+        File = csvFile,
+        
+        -- This is the corrected mapping!
+        DataMapping = {
+            Position = { "x", "y", "z" },
+            Color = { "color_r", "color_g", "color_b", "final_brightness" }, -- < Added brightness here!
+            Size = "size_scale",
+            Texture = "object_subtype",
+            TextureMapFile = tmapFile
+        },
+        
+        -- Visual styling settings
+        DrawLabels = false,
+        Opacity = 1.0,
+        PointSize = 15.0, -- You can tweak this base multiplier to make the whole dataset bigger/smaller
+        BlendMode = "Additive" -- Makes overlapping galaxies glow brighter together
+    },
+    GUI = {
+        Name = "DESI Data Release 1",
+        Path = "/Science/Astrophysics/Galaxies"
+    }
+}
+
+-- 3. Export it to the OpenSpace engine
+assetHelper.registerSceneGraphNodesAndExport(asset, { desiNode })
