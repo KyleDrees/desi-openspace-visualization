@@ -18,10 +18,10 @@ local desiNode = {
         Type = "RenderablePointCloud",
         File = csvFile,
         
-        -- This is the corrected mapping!
+        -- Mapping section
         DataMapping = {
             Position = { "x", "y", "z" },
-            Color = { "color_r", "color_g", "color_b", "final_brightness" }, -- < Added brightness here!
+            Color = { "color_r", "color_g", "color_b", "final_brightness" },
             Size = "size_scale",
             Texture = "object_subtype",
             TextureMapFile = tmapFile
