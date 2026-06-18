@@ -1,6 +1,7 @@
 # Ignore all raw astronomical data files
 *.fits
 *.csv
+*.zip
 
 # Ignore Python cache folders
 __pycache__/
