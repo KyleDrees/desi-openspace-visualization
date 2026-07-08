@@ -1,0 +1,38 @@
+local Node = {
+    Identifier = "DESI_Test_Coloring",
+    Parent = "Root",
+    Renderable = {
+        Type = "RenderablePointCloud",
+        File = asset.resource("data/desi_morphtype_catalog.csv"),
+        Unit = "Mpc",
+        Billboard = "Camera Position Normal",
+
+        DataMapping = {
+            X = "x",
+            Y = "y",
+            Z = "z"
+        },
+
+        Coloring = {
+            ColorMapping = {
+                File = asset.resource("data/morphtype_colors.cmap"),
+                Parameter = "object_subtype",
+                ParameterOptions = {
+                    { Key = "object_subtype", Range = { 1.0, 7.0 } }
+                }
+            }
+        }
+    },
+    GUI = {
+        Name = "DESI Test Coloring",
+        Path = "/DESI"
+    }
+}
+
+asset.onInitialize(function()
+    openspace.addSceneGraphNode(Node)
+end)
+
+asset.onDeinitialize(function()
+    openspace.removeSceneGraphNode(Node)
+end)
