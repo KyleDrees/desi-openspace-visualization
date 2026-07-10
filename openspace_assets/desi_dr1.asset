@@ -1,43 +1,47 @@
-local assetHelper = asset.require("util/asset_helper")
-
--- 1. Point OpenSpace to your final exported CSV and your Texture Map
-local csvFile = asset.localResource("desi_catalog_final.csv") -- Make sure this matches your final Python export name!
-local tmapFile = asset.localResource("galaxy_sprites.tmap")
-
--- 2. Define the visual parameters for the OpenSpace Scene Graph
-local desiNode = {
-    Identifier = "DESI_Data_Release_1",
+local Node = {
+    Identifier = "DESI_DR1_Catalog",
     Parent = "Root",
-    Transform = {
-        Translation = {
-            Type = "StaticTranslation",
-            Position = {0, 0, 0}
-        }
-    },
     Renderable = {
         Type = "RenderablePointCloud",
-        File = csvFile,
+        -- Make sure this matches your exact CSV filename!
+        File = asset.resource("desi_catalog_indexed_0-2-0.csv"),
+        Unit = "Mpc", 
         
-        -- Mapping section
         DataMapping = {
-            Position = { "x", "y", "z" },
-            Color = { "color_r", "color_g", "color_b", "final_brightness" },
-            Size = "size_scale",
-            Texture = "object_subtype",
-            TextureMapFile = tmapFile
+            X = "x",
+            Y = "y",
+            Z = "z"
         },
         
-        -- Visual styling settings
-        DrawLabels = false,
-        Opacity = 1.0,
-        PointSize = 15.0, -- You can tweak this base multiplier to make the whole dataset bigger/smaller
-        BlendMode = "Additive" -- Makes overlapping galaxies glow brighter together
+        Coloring = {
+            ColorMapping = {
+                File = asset.resource("lupton_palette.cmap"),
+                -- Adding this line to match your friend's explicit syntax
+                Parameter = "color_id", 
+                ParameterOptions = {
+                    { 
+                        Key = "color_id", 
+                        Range = { 0.0, 999.0 } 
+                    }
+                }
+            }
+        },
+        
+        Scale = {
+            ScaleColumn = "size_scale",
+            ScaleExponent = 1.0
+        }
     },
     GUI = {
-        Name = "DESI Data Release 1",
-        Path = "/Science/Astrophysics/Galaxies"
+        Name = "DESI DR1 Full Survey",
+        Path = "/Universe/Galaxies/DESI"
     }
 }
 
--- 3. Export it to the OpenSpace engine
-assetHelper.registerSceneGraphNodesAndExport(asset, { desiNode })
+asset.onInitialize(function()
+    openspace.addSceneGraphNode(Node)
+end)
+
+asset.onDeinitialize(function()
+    openspace.removeSceneGraphNode(Node)
+end)
