@@ -1,0 +1,36 @@
+local Node = {
+    Identifier = "DESI_Texture_Morphtype",
+    Parent = "Root",
+    Renderable = {
+        Type = "RenderablePointCloud",
+        File = asset.resource("data/desi_texture_catalog.csv"),
+        Unit = "Mpc",
+        Billboard = "Camera Position Normal",
+        DataMapping = {
+            X = "x",
+            Y = "y",
+            Z = "z",
+            TextureColumn = "texture_index",
+            TextureMapFile = asset.resource("data/morphtype_textures.tmap")
+        },
+        Texture = {
+            Folder = asset.resource("data/textures")
+        },
+        Coloring = {
+            -- Disable additive blending so overlapping points don't wash out to white
+            UseAdditiveBlending = false
+        }
+    },
+    GUI = {
+        Name = "DESI Texture Morphtype",
+        Path = "/DESI"
+    }
+}
+
+asset.onInitialize(function()
+    openspace.addSceneGraphNode(Node)
+end)
+
+asset.onDeinitialize(function()
+    openspace.removeSceneGraphNode(Node)
+end)
