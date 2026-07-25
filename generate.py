@@ -34,4 +34,4 @@ print("4/4: Saving final .csv...")
 df = df.drop(columns=['color_r', 'color_g', 'color_b'])
 df.to_csv(OUTPUT_CSV_PATH, index=False) 
 
-print("SUCCESS! Process complete.")
+print("SUCCESS! Process complete.") 
