@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Update this path if your data folder is located elsewhere
-MASTER_CSV_PATH = "../data/desi_catalog_fullsurvey.csv"
+MASTER_CSV_PATH = "/users/PCON0003/ulricclaar/desi-openspace-visualization/data/desi_catalog_indexed.csv"
 
 print("--- DESI OpenSpace Wedge Slicer ---")
 print("Please enter your wedge boundaries:\n")
