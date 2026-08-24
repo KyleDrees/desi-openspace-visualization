@@ -39,7 +39,7 @@ pip install numpy pandas matplotlib scipy astropy kcorrect
 This project is actively being developed with the following milestones:
 
 - [x] Map basic XYZ positions and k-corrected colors from DESI DR1.
-- [ ] **Data Merging:** Combine the current pipeline with morphology data (Kyle) and luminosity data (Torston) by joining on the unique `TARGETID`.
+- [ ] **Data Merging:** Combine the current pipeline with morphology data (Kyle) and luminosity data (Torsten) by joining on the unique `TARGETID`.
 - [ ] **Realistic Rendering:** Map DESI morphology tags to specific OpenSpace textures and scale sizes logarithmically based on intrinsic brightness.
 - [ ] **Dynamic Wedges:** Create a Python script to easily slice the universe into manageable data wedges parameterized by RA, DEC, and Z ranges.
 - [ ] **Planetarium Integration:** Set up individual wedge toggles in OpenSpace for live audience Q&A sessions.
