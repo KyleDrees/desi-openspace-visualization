@@ -1,5 +1,4 @@
-# DESI Morphology and Quasar Texture Map
-# Maps the 'object_subtype' column to specific PNGs
-1 textures/spiral.png
-2 textures/elliptical.png
-3 textures/quasar_flare.png
+3
+1 Textures/spiral.png
+2 Textures/elliptical.png
+3 Textures/quasar_flare.png

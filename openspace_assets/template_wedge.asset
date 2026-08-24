@@ -1,20 +1,20 @@
 -- =================================================================
--- DESI FULL SURVEY
+-- DESI WEDGE TEMPLATE
+-- Copy this file for each new wedge and change the 3 variables below!
 -- =================================================================
 
-local full_identifier = "DESI_DR1_Catalog"
-local full_csv_file = "desi_catalog_indexed_0-2-0.csv"
-local full_gui_name = "DESI DR1 Full Survey"
+local wedge_identifier = "DESI_Wedge_1"
+local wedge_csv_file = "wedge_RA0-30_DEC-10-10_Z0.01-0.5.csv"
+local wedge_gui_name = "Wedge 1 (RA 0-30)"
 
 -- =================================================================
 
 local Node = {
-    Identifier = full_identifier,
+    Identifier = wedge_identifier,
     Parent = "Root",
-    Enabled = false, -- This starts the node turned OFF (unchecked)
     Renderable = {
         Type = "RenderablePointCloud",
-        File = asset.resource(full_csv_file),
+        File = asset.resource(wedge_csv_file),
         Unit = "Mpc", 
         
         DataMapping = {
@@ -37,13 +37,15 @@ local Node = {
         },
         
         Scale = {
-            ScaleColumn = "size_scale",
+            -- Note: We will map this properly when we add Torston's data!
+            ScaleColumn = "size_scale", 
             ScaleExponent = 1.0
         }
     },
     GUI = {
-        Name = full_gui_name,
-        Path = "/Universe/Galaxies/DESI"
+        Name = wedge_gui_name,
+        -- This puts all your wedges into a neat subfolder in the OpenSpace menu!
+        Path = "/Universe/Galaxies/DESI Wedges" 
     }
 }
 
