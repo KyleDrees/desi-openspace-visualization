@@ -4,7 +4,7 @@ This repository contains a data processing pipeline designed to convert Dark Ene
 
 This work is part of an ongoing project at The Ohio State University's Planetarium to create highly realistic, immersive 3D flythroughs of the universe.
 
-## 📁 Repository Structure
+## Repository Structure
 
 **Production Scripts (`scripts/`)**
 * `fitstocsv_fullsurvey.ipynb`: Ingests raw DESI catalogs, applies quality filters, calculates Cartesian coordinates, and computes rest-frame optical colors.
@@ -21,9 +21,9 @@ This work is part of an ongoing project at The Ohio State University's Planetari
 **Other Directories**
 * **`plots/`**: Generated analytical graphs and diagnostic plots.
 * **`archive/`**: Previous iterations and primitive code versions.
-* **`data/`**: Local directory for massive raw `.fits` catalogs and `.csv` outputs (ignored by git). 
+* **`data/`**: Local directory for massive raw `.fits` catalogs and `.csv` outputs (ignored by git and must be downloaded if notg already on host computer). 
 
-## 🚀 Installation & Dependencies
+## Installation & Dependencies
 
 This pipeline requires several scientific and astronomical Python libraries. Install them via pip:
 
@@ -31,14 +31,14 @@ This pipeline requires several scientific and astronomical Python libraries. Ins
 pip install numpy pandas matplotlib scipy astropy kcorrect
 ```
 
-## 🛠️ Pipeline Usage Instructions
+## Pipeline Usage Instructions
 
 1. Run `scripts/fitstocsv_fullsurvey.ipynb` to clean the raw data and export the initial spatial `.csv`.
 2. Run `scripts/generate.py` to produce the `.cmap` and indexed master `.csv` files.
 3. (Optional) Run `scripts/slice_wedge.py` to create specific subsets of the master catalog.
 4. Load `desi_dr1.asset` or your generated wedge assets in your OpenSpace environment.
 
-## 🌌 OpenSpace Setup & Integration
+## OpenSpace Setup & Integration
 
 ### File Placement
 * Copy the contents of your `openspace_assets/` folder and your exported `.csv` data files into the `data/assets/` directory of your local OpenSpace installation.
@@ -64,7 +64,7 @@ To load individual data slices as separate toggles in the OpenSpace menu without
    asset.require("openspace_assets/wedge_RA0-30")
    ```
 
-## 🗺️ Project Roadmap
+## Project Roadmap
 
 - [x] Map basic XYZ positions and k-corrected colors from DESI DR1.
 - [x] **Dynamic Wedges:** Create a Python script to easily slice the universe into manageable data wedges.
