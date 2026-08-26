@@ -11,7 +11,7 @@ local full_gui_name = "DESI DR1 Full Survey"
 local Node = {
     Identifier = full_identifier,
     Parent = "Root",
-    Enabled = false, -- This starts the node turned OFF (unchecked)
+    Enabled = false, -- Starts turned OFF (unchecked) for planetarium shows
     Renderable = {
         Type = "RenderablePointCloud",
         File = asset.resource(full_csv_file),
@@ -36,9 +36,17 @@ local Node = {
             }
         },
         
+        -- NEW: Texture Mapping reads your .tmap file and assigns shapes
+        TextureMapping = {
+            File = asset.resource("galaxy_sprites.tmap"),
+            Parameter = "object_subtype"
+        },
+        
+        -- UPDATED: Scale block controls physical size and glowing brightness
         Scale = {
             ScaleColumn = "size_scale",
-            ScaleExponent = 1.0
+            ScaleExponent = 1.0,
+            ScaleFactor = 1.0 -- Standard multiplier to ensure the scale triggers
         }
     },
     GUI = {

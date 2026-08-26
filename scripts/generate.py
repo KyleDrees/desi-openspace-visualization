@@ -2,9 +2,9 @@ import pandas as pd
 #takes csv made from fitstocsv_fullsurvey.ipynb and generates a .cmap file for OpenSpace
 #Make sure to change the INPUT_CSV_PATH, OUTPUT_CSV_PATH, and CMAP_OUTPUT_PATH variables below to your desired paths before running this script.
 # --- Configuration ---
-INPUT_CSV_PATH = "/users/PCON0003/ulricclaar/desi-openspace-visualization/data/desi_catalog_fullsurvey.csv" 
-OUTPUT_CSV_PATH = "/users/PCON0003/ulricclaar/desi-openspace-visualization/data/desi_catalog_indexed.csv"
-CMAP_OUTPUT_PATH = "/users/PCON0003/ulricclaar/desi-openspace-visualization/data/lupton_palette.cmap"
+INPUT_CSV_PATH = "/users/PCON0003/ulricclaar/desi-openspace-visualization/data/desi_catalog_fullsurvey_test.csv" 
+OUTPUT_CSV_PATH = "/users/PCON0003/ulricclaar/desi-openspace-visualization/data/desi_catalog_indexed_test.csv"
+CMAP_OUTPUT_PATH = "/users/PCON0003/ulricclaar/desi-openspace-visualization/data/lupton_palette_test.cmap"
 
 print("1/4: Loading data into pandas...")
 df = pd.read_csv(INPUT_CSV_PATH)
